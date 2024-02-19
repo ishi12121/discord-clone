@@ -2,9 +2,8 @@
 
 import { FileIcon, X } from "lucide-react";
 import Image from "next/image";
-
+ 
 import { UploadDropzone } from "@/lib/uploadthing";
-
 import "@uploadthing/react/styles.css";
 
 interface FileUploadProps {
@@ -57,10 +56,10 @@ export const FileUpload = ({ onChange, value, endpoint }: FileUploadProps) => {
   return (
     <UploadDropzone
       endpoint={endpoint}
-      onClientUploadComplete={(res: { url: string | undefined; }[]) => {
+      onClientUploadComplete={(res) => {
         onChange(res?.[0].url);
       }}
-      onUploadError={(error: Error) => {
+      onUploadError={(error) => {
         console.log(error);
       }}
     />
