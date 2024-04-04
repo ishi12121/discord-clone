@@ -9,16 +9,13 @@ interface MemberIdPageProps {
   params: {
     memberId: string;
     serverId: string;
-  },
+  };
   searchParams: {
     video?: boolean;
-  }
+  };
 }
 
-const MemberIdPage = async ({
-  params,
-  searchParams,
-}: MemberIdPageProps) => {
+const MemberIdPage = async ({ params, searchParams }: MemberIdPageProps) => {
   const profile = await currentProfile();
 
   if (!profile) {
@@ -39,15 +36,11 @@ const MemberIdPage = async ({
     return redirect("/");
   }
 
-
- 
-  
-
-  return ( 
+  return (
     <div className="bg-white dark:bg-[#313338] flex flex-col h-full">
       member
     </div>
-   );
-}
- 
+  );
+};
+
 export default MemberIdPage;

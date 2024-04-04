@@ -10,12 +10,10 @@ interface ChannelIdPageProps {
   params: {
     serverId: string;
     channelId: string;
-  }
+  };
 }
 
-const ChannelIdPage = async ({
-  params
-}: ChannelIdPageProps) => {
+const ChannelIdPage = async ({ params }: ChannelIdPageProps) => {
   const profile = await currentProfile();
 
   if (!profile) {
@@ -32,19 +30,16 @@ const ChannelIdPage = async ({
     where: {
       serverId: params.serverId,
       profileId: profile.id,
-    }
+    },
   });
 
   if (!channel || !member) {
     redirect("/");
   }
 
-  return ( 
-    <div className="bg-white dark:bg-[#313338] flex flex-col h-full">
-      hello
-     
-    </div>
-   );
-}
- 
+  return (
+    <div className="bg-white dark:bg-[#313338] flex flex-col h-full">hello</div>
+  );
+};
+
 export default ChannelIdPage;
