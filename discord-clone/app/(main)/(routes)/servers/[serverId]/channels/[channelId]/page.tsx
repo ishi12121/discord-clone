@@ -5,6 +5,7 @@ import { ChannelType } from "@prisma/client";
 import { currentProfile } from "@/lib/current-profile";
 
 import { db } from "@/lib/db";
+import { ChatHeader } from "@/components/chat/chat-header";
 
 interface ChannelIdPageProps {
   params: {
@@ -38,7 +39,12 @@ const ChannelIdPage = async ({ params }: ChannelIdPageProps) => {
   }
 
   return (
-    <div className="bg-white dark:bg-[#313338] flex flex-col h-full">hello</div>
+    <div className="bg-white dark:bg-[#313338] flex flex-col h-full">
+      <ChatHeader
+        name={channel.name}
+        serverId={channel.serverId}
+      type="channel" />
+    </div>
   );
 };
 
