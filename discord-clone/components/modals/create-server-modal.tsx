@@ -1,8 +1,10 @@
 "use client";
+
 import axios from "axios";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+
 import {
   Dialog,
   DialogContent,
@@ -17,7 +19,7 @@ import {
   FormField,
   FormItem,
   FormLabel,
-  FormMessage,
+  FormMessage
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -27,11 +29,11 @@ import { useModal } from "@/hooks/use-modal-store";
 
 const formSchema = z.object({
   name: z.string().min(1, {
-    message: "Server name is required.",
+    message: "Server name is required."
   }),
   imageUrl: z.string().min(1, {
-    message: "Server image is required.",
-  }),
+    message: "Server image is required."
+  })
 });
 
 export const CreateServerModal = () => {
@@ -45,7 +47,7 @@ export const CreateServerModal = () => {
     defaultValues: {
       name: "",
       imageUrl: "",
-    },
+    }
   });
 
   const isLoading = form.formState.isSubmitting;
@@ -60,11 +62,13 @@ export const CreateServerModal = () => {
     } catch (error) {
       console.log(error);
     }
-  };
+  }
+
   const handleClose = () => {
     form.reset();
     onClose();
-  };
+  }
+
   return (
     <Dialog open={isModalOpen} onOpenChange={handleClose}>
       <DialogContent className="bg-white text-black p-0 overflow-hidden">
@@ -73,8 +77,7 @@ export const CreateServerModal = () => {
             Customize your server
           </DialogTitle>
           <DialogDescription className="text-center text-zinc-500">
-            Give your server a personality with a name and an image. You can
-            always change it later.
+            Give your server a personality with a name and an image. You can always change it later.
           </DialogDescription>
         </DialogHeader>
         <Form {...form}>
@@ -103,7 +106,9 @@ export const CreateServerModal = () => {
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
+                    <FormLabel
+                      className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70"
+                    >
                       Server name
                     </FormLabel>
                     <FormControl>
@@ -128,5 +133,5 @@ export const CreateServerModal = () => {
         </Form>
       </DialogContent>
     </Dialog>
-  );
-};
+  )
+}
