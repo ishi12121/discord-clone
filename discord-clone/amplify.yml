@@ -1,6 +1,6 @@
 version: 1
 applications:
-   -appRoot: discord-clone
+  - appRoot: discord-clone
     frontend:
       phases:
         preBuild:
@@ -20,3 +20,4 @@ applications:
         paths:
           - discord-clone/node_modules/**/*
           - discord-clone/.next/cache/**/*
+
