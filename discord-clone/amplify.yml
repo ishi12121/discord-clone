@@ -1,20 +1,22 @@
 version: 1
-frontend:
-  phases:
-    preBuild:
-      commands:
-        - cd discord-clone
-        - npm ci
-    build:
-      commands:
-        - npm run lint
-        - npm run test
-        - npm run build
-  artifacts:
-    baseDirectory: discord-clone/.next
-    files:
-      - "**/*"
-  cache:
-    paths:
-      - discord-clone/node_modules/**/*
-      - discord-clone/.next/cache/**/*
+applications:
+  - frontend:
+      phases:
+        preBuild:
+          commands:
+            - cd discord-clone
+            - npm ci
+        build:
+          commands:
+            - npm run lint
+            - npm run test
+            - npm run build
+      artifacts:
+        baseDirectory: discord-clone/.next
+        files:
+          - "**/*"
+      cache:
+        paths:
+          - discord-clone/node_modules/**/*
+          - discord-clone/.next/cache/**/*
+      appRoot: discord-clone
