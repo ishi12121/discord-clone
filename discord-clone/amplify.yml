@@ -1,11 +1,10 @@
 version: 1
 applications:
-  - appRoot: discord-clone
+  - appRoot: .
     frontend:
       phases:
         preBuild:
           commands:
-            - cd discord-clone
             - npm ci
         build:
           commands:
@@ -13,11 +12,10 @@ applications:
             - npm run test
             - npm run build
       artifacts:
-        baseDirectory: discord-clone/.next
+        baseDirectory: .next
         files:
           - "**/*"
       cache:
         paths:
-          - discord-clone/node_modules/**/*
-          - discord-clone/.next/cache/**/*
-
+          - node_modules/**/*
+          - .next/cache/**/*
