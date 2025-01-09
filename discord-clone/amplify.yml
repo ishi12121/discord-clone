@@ -3,18 +3,18 @@ frontend:
   phases:
     preBuild:
       commands:
+        - cd discord-clone
         - npm ci
-
     build:
       commands:
         - npm run lint
         - npm run test
         - npm run build
   artifacts:
-    baseDirectory: .next
+    baseDirectory: discord-clone/.next
     files:
       - "**/*"
   cache:
     paths:
-      - node_modules/**/*
-      - .next/cache/**/*
+      - discord-clone/node_modules/**/*
+      - discord-clone/.next/cache/**/*
