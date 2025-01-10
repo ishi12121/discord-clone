@@ -3,12 +3,12 @@ frontend:
   phases:
     preBuild:
       commands:
-        - yarn install
+        - npm install
     build:
       commands:
         - npx prisma db push
         - npx prisma generate
-        - yarn build
+        - npm build
   artifacts:
     baseDirectory: .next
     files:
