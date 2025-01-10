@@ -8,7 +8,7 @@ frontend:
       commands:
         - npx prisma db push
         - npx prisma generate
-        - npm build
+        - npm run build
   artifacts:
     baseDirectory: .next
     files:
